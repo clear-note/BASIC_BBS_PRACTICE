@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_board</title>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+    <h2 align="center">자유게시판</h2>
+    <table  align="center">
+        <tr >
+            <td>
+                <form onsubmit="event.preventDefault();onFormSubmit();" autocomplete="off">
+                    <div>
+                        <input type="text" name="title" id="title" placeholder="제목"  align="center" width="100px">
+                    </div>
+                    <div>
+                        <input type="text" name="writer" id="writer" placeholder="작성자"  align="center" width="100px">
+                    </div>
+                    <div>
+                        <input type="text" name="content" id="content" placeholder="내용"  align="center" width="300px">
+                    </div>
+                    <div  class="form-action-buttons">
+                        <input type="submit" value="Create">
+                    </div>
+                </form>
+            </td>
+        </tr>
+    </table>
+    	<TR>
+            <td>
+                <table class="list" id="listAll" border="1" width="700px"  align="center">
+                    <thead>
+                        <tr>
+                            <th>제 목</th>
+                            <th>작 성 자</th>
+                            <th>내 용</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </td>
+          </TR>  
+    <script src="script.js"></script>
+</body>
+</html>
