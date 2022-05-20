@@ -1,7 +1,8 @@
 var selectedRow = null;
 
+
+// create 동작
 function onFormSubmit(){
-  // alert("dddd");
   var formData = readFormData();
   if(selectedRow == null)
     insertNewRecord(formData);
@@ -11,6 +12,8 @@ function onFormSubmit(){
     resetForm();  
 }
 
+
+// form에 입력된 문자열 반환
 function readFormData() {
   var formData = {};
   formData["title"] = document.getElementById("title").value;
@@ -19,6 +22,7 @@ function readFormData() {
   return formData;
 }
 
+// html 페이지에 data 출력
 function insertNewRecord(data) {
   var table = document.getElementById("listAll").getElementsByTagName('tbody')[0];
   var newRow = table.insertRow(table.length);
@@ -33,6 +37,7 @@ function insertNewRecord(data) {
                      <a onClick="onDelete(this)">DELETE</a>`;
 }
 
+// form 화면 reset
 function resetForm() {
   document.getElementById("title").value = "";
   document.getElementById("writer").value = "";
@@ -40,6 +45,7 @@ function resetForm() {
   selectedRow = null;
 }
 
+// 작성
 function onEdit(td) {
   selectedRow = td.parentElement.parentElement;
   document.getElementById("title").value = selectedRow.cells[0].innerHTML;
@@ -47,16 +53,21 @@ function onEdit(td) {
   document.getElementById("content").value = selectedRow.cells[2].innerHTML;
 }
 
-function updateRecord(formData){
-    selectedRow.cells[0].innerHTML = formData.title;
-    selectedRow.cells[1].innerHTML = formData.writer;
-    selectedRow.cells[2].innerHTML = formData.content;
-}
 
+
+// 삭제
 function onDelete(td){
   if(confirm('정말 삭제하시겠습니까?')){
     row = td.parentElement.parentElement;
     document.getElementById("listAll").deleteRow(row.rowIndex);
     resetForm();
   }
+}
+
+
+//업데이트 , form 화면에 재입력 
+function updateRecord(formData){
+    selectedRow.cells[0].innerHTML = formData.title;
+    selectedRow.cells[1].innerHTML = formData.writer;
+    selectedRow.cells[2].innerHTML = formData.content;
 }
